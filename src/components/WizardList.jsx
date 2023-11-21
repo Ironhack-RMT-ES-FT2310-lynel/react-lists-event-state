@@ -13,7 +13,7 @@ function WizardList() {
     // al clickar, voy a buscar el primer elemento de json
     // console.log(allWizard[0])
     // lo elimino del json
-    const wizardToAdd = allWizard.shift()
+    const wizardToAdd = allWizard.shift() // pop
     console.log(wizardToAdd)
 
     // lo añado al estado wizardstoShow
@@ -28,18 +28,36 @@ function WizardList() {
 
   }
 
+  // metodos que mutan el original => shift, unshift, push, pop, splice, sort, reverse
+
+  const handleDelete = (indexToDelete) => {
+    console.log("intentando borrar", indexToDelete)
+
+    // como sé cual elemento estoy tratando de borrar
+
+    // como lo elimino del estado
+    const clone = JSON.parse(JSON.stringify(wizardstoShow))
+    clone.splice(indexToDelete, 1)
+    setWizardsToShow(clone)
+
+    // opcionalmente podriamos despues de de borrar del estado, añadir al allWizards
+
+  }
+
   return (
     <div>
 
         <button onClick={handleAdd}>Añadir nuevos hechiceros o brujas</button>
 
-        {wizardstoShow.map((eachWizard) => {
+        {wizardstoShow.map((eachWizard, index) => {
             return (
               <div key={eachWizard.id}>
                 <hr />
                 <h3>{eachWizard.name}</h3>
                 <p>{eachWizard.description}</p>
-                <button>Borrar</button>
+                {/* <button onClick={ handleDelete }>Borrar</button> */}
+                {/* //* Si le quiero pasar argumentos a handleDelete... */}
+                <button onClick={ () => handleDelete(index) }>Borrar</button>
               </div>
             )
         })}

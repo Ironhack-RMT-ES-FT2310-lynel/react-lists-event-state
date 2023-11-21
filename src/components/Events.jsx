@@ -17,7 +17,7 @@ function Events() {
     <div>
       
       <button onClick={ handleClick }>Click</button>
-      {/* <button onClick={ () => console.log("clickando") }>Click</button> */}
+      <button onClick={ () => console.log("clickando") }>Click</button>
 
       <button onDoubleClick={ handleClick }>otro click</button>
 
