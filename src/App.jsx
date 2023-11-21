@@ -1,6 +1,8 @@
 import './App.css'
+import Counter from './components/Counter'
 import Events from './components/Events'
 import List from './components/List'
+import WizardList from './components/WizardList'
 
 function App() {
 
@@ -10,7 +12,11 @@ function App() {
 
       {/* <List /> */}
 
-      <Events />
+      {/* <Events /> */}
+
+      {/* <Counter /> */}
+
+      <WizardList />
 
     </div>
   )
